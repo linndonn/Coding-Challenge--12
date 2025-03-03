@@ -14,3 +14,15 @@ revenueCard.innerHTML = "
 <h3>Revenue</h3><p>$0</p>";
 //Append the new metric card to the dashboard container using appendChild.
 dashboardId.appendChild(revenueCard);
+
+
+//Task 2 - Updated Metric Cards via Array Conversion
+//Use document.querySelectorAll to select all elements with the class "metric-card".
+const metricCards = document.querySelectorAll(".metric-card");
+//Convert the resulting NodeList into an array (using Array.from or the spread operator).
+const metricCardArray = Array.from(metricCardList);
+//Use an array method such as .forEach() to update each card’s inner text 
+metricCardArray.forEach(card => { 
+    card.textContent += " - Updated"; 
+    card.setAttribute("style", "background-color: blue;"); 
+});
