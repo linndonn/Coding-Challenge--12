@@ -26,3 +26,29 @@ metricCardArray.forEach(card => {
     card.textContent += " - Updated"; 
     card.setAttribute("style", "background-color: blue;"); 
 });
+
+
+//Task 3 - Implemented Dynamic Inventory List
+function addProduct(ProductName) {
+    const inventoryList = document.getElementById("inventoryList");
+    const ProductItem = document.createElement("li");
+ //Use setAttribute to add a class (e.g., "product-item") 
+    ProductItem.setAttribute("class", "product-item");
+    ProductItem.setAttribute("product-info", productName);
+    ProductItem.innerText = productName;
+    
+// Add click event to remove item
+    ProductItem.addEventListener("click", function() {
+        removeProductItem(ProductItem);
+    });
+     inventoryList.appendChild(ProductItem);
+};
+//Use removeChild within the inventory list to remove the clicked item.
+function removeProductItem(ProductItem) {
+    const inventoryList = document.getElementById("inventoryList");
+    inventoryList.removeChild(ProductItem);
+  };
+  //Add a button that calls your “add” function should add a new product item to the inventory list.
+  document.getElementById("addProductButton").addEventListener("click here", () => {
+    addProductItem("New Product Item");
+  })
