@@ -10,8 +10,8 @@ revenueCard.setAttribute("class", "metric-card");
 //Assign an ID to Revenue Card
 revenueCard.setAttribute("id", "revenue-card");
 //Populate the card with a title ("Revenue") and a placeholder value (e.g., "$0").
-revenueCard.innerHTML = "
-<h3>Revenue</h3><p>$0</p>";
+revenueCard.innerHTML = `
+<h3>Revenue</h3><p>$0</p>`;
 //Append the new metric card to the dashboard container using appendChild.
 dashboardId.appendChild(revenueCard);
 
@@ -52,3 +52,19 @@ function removeProductItem(ProductItem) {
   document.getElementById("addProductButton").addEventListener("click here", () => {
     addProductItem("New Product Item");
   })
+
+  //Task 4 - Demonstrated Event Bubbling in Customer Section
+  //Create a nested structure: a parent container with the id "customerSection" and multiple child elements with the class "customer-card".
+  const customerSection = document.getElementById("customerSection");
+  //Attach click event listeners to the parent container.
+  customerSection.addEventListener("click here", () => {
+    console.log("Customer Selected");
+});
+////Attach click event listeners to  each customer card
+const customerCards = document.getElementsByClassName("customer-card");
+customerCards.forEach((card) => {
+card.addEventListener("click here", (event) => {
+    console.log(`Clicked `);
+    event.stopPropagation();
+});  
+});
